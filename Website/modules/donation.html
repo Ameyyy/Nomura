@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/main.css">
+<head>
+<body>
+
+<div class="w3-container">
+  <h2>Donation</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Donate</button>
+
+  <div id="id01" class="modal">
+    <div class="modal-content-half" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php">
+        <h1>Make a Donation</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Amount</b></label>
+              <input class="input-full" type="number" placeholder="Enter Amount" name="amount" style="text-align:left" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Mode of Payment</b></label>
+                <input class="input-full" placeholder="Select a Mode" name="mode" list="mode">    
+                <datalist id="mode">
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="Debit Card">Debit Card</option>
+                  <option value="Net Banking">Net Banking</option>
+                </datalist>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Donate</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="red-button">Cancel</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>

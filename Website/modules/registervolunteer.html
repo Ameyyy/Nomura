@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/main.css">
+<head>
+<body>
+
+<div class="w3-container">
+  <h2>Register volunteer</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Register as Volunteer</button>
+
+  <div id="id01" class="modal">
+    <div class="modal-content-full" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php">
+        <h1>Register as a Volunteer</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Name</b></label>
+              <input class="input-full" type="text" placeholder="Enter Full Name" name="fullname" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Email</b></label>
+              <input class="input-full" type="email" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Contact Number</b></label>
+              <input class="input-full" type="text" pattern="[0-9]{10}" name="contact" placeholder="Enter Contact Number" required><br>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Password</b></label>
+              <input class="input-full" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Confirm Password</b></label>
+              <input class="input-full" type="password" placeholder="Re-enter Password" name="confirmpassword" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="Male" checked> Male
+              <input type="radio" name="gender" value="Female"> Female
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Age</b></label>
+              <input class="input-full" type="number" placeholder="Enter Age" name="age" min="18"  style="text-align:left" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Location</b></label>
+                <input class="input-full" placeholder="Select Your Location" name="location" list="location">    
+                <datalist id="location">
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                </datalist>
+            </div>
+          </div>
+          <label><b>NGO Preferences</b></label><br>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+
+                <input type="checkbox" name="ngo_list[]" value="Animal Rescue"><label>Animal Rescue</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Cleanliness Drive"><label>Cleanliness Drive</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Education"><label>Education</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Health Campaign"><label>Health Campaign</label><br>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+                <input type="checkbox" name="ngo_list[]" value="Human Rights"><label>Human Rights</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Rural Development"><label>Rural Development</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Water Conservation"><label>Water Conservation</label><br/>
+                <input type="checkbox" name="ngo_list[]" value="Women & Children Rights"><label>Women & Children Rights</label><br/>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Register</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="red-button">Cancel</button>
+        <span style="float:right">Already Registered? <a href="#">Log In</a></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>

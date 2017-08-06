@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="best holiday destinations, best tours, travel destinations, travel voyage, vacation travel" />
+	<title>ABC Organization</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/nav.css">
+	<link rel="stylesheet" href="../css/modal.css">
+	<link rel="stylesheet" href="../css/arrow.css">
+	<link rel="stylesheet" href="../css/slider.css">
+	
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="../js/scroll.js"></script>
+  	<script src="../js/arrow.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<div class="header">
+		<h1 style="text-shadow: 2px 2px 8px #3973ac">ABC Organization</h1>
+		</div>
+	</header>	
+				
+				<nav class="shadow">	
+					<ul>
+						<li onclick="smoothScroll(document.getElementById('home'))" >Home</li>
+						<li onclick="smoothScroll(document.getElementById('ngos'))" >NGOs</li>
+						<li  onclick="smoothScroll(document.getElementById('events'))" >Events</li>
+						<li  onclick="smoothScroll(document.getElementById('about'))" >About Us</li>
+						<li class="null"></li>
+						<?php
+						error_reporting(0);
+						include("php/connect.php");
+						
+						require("php/session.php");
+						if ($_SESSION["loggedin"] != true) {
+							?>
+
+						<li onclick="document.getElementById('login').style.display='block'" >Login</li>
+						<li onclick="document.getElementById('rngo').style.display='block'" >Register as NGO</li>
+						<li onclick="document.getElementById('rv').style.display='block'" >Register as Volunteer</li>
+					</ul>
+				</nav>
+				
+						  <div id="login" class="modal">
+    <div class="modal-content-half" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="../php/login.php">
+        <h1>Log In</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Email</b></label>
+              <input class="input-full" type="email" placeholder="Enter Email" name="email" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Password</b></label>
+              <input class="input-full" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Register</button>
+      </form>
+
+      <div class="bottom-section">
+        <button onclick="document.getElementById('login').style.display='none'" type="button" class="red-button">Cancel</button>
+        
+      </div>
+
+    </div>
+  </div>
+
+				
+											
+					<?php
+				}
+				else{
+				?>
+						<li onclick="location.href='php/myprofile.php'" ><?php echo $_SESSION["Name"] ?></li>
+						<li onclick="location.href='php/logout.php'">Log Out</li>
+					</ul>
+				</nav>
+					<?php
+					}
+					$conn->close();;
+					?>
+
+				<div id="rngo" class="modal">
+    <div class="modal-content-full" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('rngo').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="../php/registerngo.php">
+        <h1>Register as a NGO</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Name</b></label>
+              <input class="input-full" type="text" placeholder="Enter NGO Name" name="ngoname" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Email</b></label>
+              <input class="input-full" type="email" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Contact Number</b></label>
+              <input class="input-full" type="text" pattern="[0-9]{10}" name="contact" placeholder="Enter Contact Number" required><br>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Password</b></label>
+              <input class="input-full" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Confirm Password</b></label>
+              <input class="input-full" type="password" placeholder="Re-enter Password" name="confirmpassword" required>
+            </div>
+          </div>
+          <div class="section group" >
+            
+          </div>
+
+          <button class="green-button" type="submit">Register</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('rngo').style.display='none'" type="button" class="red-button">Cancel</button>
+        <span style="float:right">Already Registered? <a onclick="document.getElementById('rngo').style.display='none';document.getElementById('login').style.display='block'">Log In</a></span>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="rv" class="modal">
+    <div class="modal-content-full" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('rv').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php">
+        <h1>Register as a Volunteer</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Name</b></label>
+              <input class="input-full" type="text" placeholder="Enter Full Name" name="fullname" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Email</b></label>
+              <input class="input-full" type="email" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Contact Number</b></label>
+              <input class="input-full" type="text" pattern="[0-9]{10}" name="contact" placeholder="Enter Contact Number" required><br>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Password</b></label>
+              <input class="input-full" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Confirm Password</b></label>
+              <input class="input-full" type="password" placeholder="Re-enter Password" name="confirmpassword" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="Male" checked> Male
+              <input type="radio" name="gender" value="Female"> Female
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Age</b></label>
+              <input class="input-full" type="number" placeholder="Enter Age" name="age" style="text-align:left" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Location</b></label>
+                <input class="input-full" placeholder="Select Your Location" name="location" list="location">    
+                <datalist id="location">
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                </datalist>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Register</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('rv').style.display='none'" type="button" class="red-button">Cancel</button>
+        <span style="float:right">Already Registered? <a onclick="document.getElementById('rv').style.display='none';document.getElementById('login').style.display='block'">Log In</a></span>
+      </div>
+
+    </div>
+  </div>
+
+				<div class="section group" id="home">
+					<div class="col span_2_of_8">
+					</div>
+					<div class="col span_4_of_8">
+                                            <form name="search" method="post" action="php/search.php">
+                                                <div class="col span_6_of_8">
+                                                <input type="text" class="search shadow" style="border-radius:5px" name="dest" placeholder="Search for a NGO/Event" style="width:"><br>
+                                                
+                                                </div>
+                                                <div class="col span_2_of_8">
+                                                <button  type="submit" value="search" class="btn shadow">
+      						<span class="glyphicon glyphicon-search"></span> Go
+                                                </button>
+                                                </div>
+                                        </form>
+					</div>
+					<div class="col span_2_of_8">	
+					</div>
+				</div>
+				
+				<div class="section group" id="slide">
+					<div class="col span_1_of_8">
+					</div>
+					<div class="col span_6_of_8 slider" >
+						    <div id="slideshow-wrap">
+        <input type="radio" id="button-1" name="controls" checked="checked"/>
+        <label for="button-1"></label>
+        <input type="radio" id="button-2" name="controls"/>
+        <label for="button-2"></label>
+        <input type="radio" id="button-3" name="controls"/>
+        <label for="button-3"></label>
+        <input type="radio" id="button-4" name="controls"/>
+        <label for="button-4"></label>
+        <input type="radio" id="button-5" name="controls"/>
+        <label for="button-5"></label>
+        <label for="button-1" class="arrows" id="arrow-1">></label>
+        <label for="button-2" class="arrows" id="arrow-2">></label>
+        <label for="button-3" class="arrows" id="arrow-3">></label>
+        <label for="button-4" class="arrows" id="arrow-4">></label>
+        <label for="button-5" class="arrows" id="arrow-5">></label>
+        <div id="slideshow-inner">
+            <ul>
+                <li id="slide1">
+                    <img src="http://cssdeck.com/uploads/media/items/3/3yiC6Yq.jpg" />
+                    <div class="description">
+                        <input type="checkbox" id="show-description-1"/>
+                        <label for="show-description-1" class="show-description-label">I</label>
+                        <div class="description-text">
+                            <h2>Flower power</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="slide2">
+                    <img src="http://cssdeck.com/uploads/media/items/4/40Ly3VB.jpg" />
+                    <div class="description">
+                        <input type="checkbox" id="show-description-2"/>
+                        <label for="show-description-2" class="show-description-label">I</label>
+                        <div class="description-text">
+                            <h2>Golden sunset</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="slide3">
+                    <img src="http://cssdeck.com/uploads/media/items/0/00kih8g.jpg" />
+                    <div class="description">
+                        <input type="checkbox" id="show-description-3"/>
+                        <label for="show-description-3" class="show-description-label">I</label>
+                        <div class="description-text">
+                            <h2>Flower power again</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="slide4">
+                    <img src="http://cssdeck.com/uploads/media/items/2/2rT2vdx.jpg" />
+                    <div class="description">
+                        <input type="checkbox" id="show-description-4"/>
+                        <label for="show-description-4" class="show-description-label">I</label>
+                        <div class="description-text">
+                            <h2>Stormy coast</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="slide5">
+                    <img src="http://cssdeck.com/uploads/media/items/8/8k3N3EL.jpg" />
+                    <div class="description">
+                        <input type="checkbox" id="show-description-5"/>
+                        <label for="show-description-5" class="show-description-label">I</label>
+                        <div class="description-text">
+                            <h2>Splash!</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+					</div>
+					<div class="col span_1_of_8">	
+					</div>
+				</div>
+				
+				<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+				<script>
+				// ===== Scroll to Top ==== 
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
+				</script>
+
+				<div class="section group" id="ngos">
+					<div class="col span_8_of_8">
+					<h1 style="font-size:200%">NGOs</h1>
+					</div>
+				</div>
+
+
+				<div class="section group dest">
+					<div class="col span_1_of_8">
+					</div>
+					<div class="col span_2_of_8">
+						  <div class="w3-dropdown-hover"><a href="dest/Switzerland.php">
+						  <img class="shadow" src="images/switzerland.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <br><br><br><h1 style="font-size:350%">Switzerland</h1><br>
+						   	</div>
+						  </a></div>
+					</div>
+					<div class="col span_2_of_8">
+						<div class="w3-dropdown-hover"><a href="dest/France.php">
+						  <img class="shadow" src="images/france.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <br><br><br><h1 style="font-size:350%">France</h1><br>
+						    </div>
+						  </a></div>
+					</div>
+					<div class="col span_2_of_8">
+						<div class="w3-dropdown-hover"><a href="dest/Brazil.php">
+						  <img class="shadow" src="images/brazil.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <br><br><br><h1 style="font-size:350%">Brazil</h1><br>
+						    </div>
+						  </a></div>
+					</div>
+					<div class="col span_1_of_8">
+					</div>
+				</div>
+
+				<div class="section group" id="events">
+					<div class="col span_8_of_8">
+					<h1 style="font-size:200%">Events</h1>
+					</div>
+				</div>
+				
+					<div class="section group">
+					<div class="col span_1_of_8">	
+					</div>
+					<div class="col span_2_of_8">
+						<div class="w3-dropdown-hover"><a href="dest/Australia.php">
+						  <img class="shadow" src="images/australia.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <br><br><br><h1 style="font-size:350%">Australia</h1><br>
+						    </div>
+						  </a></div>
+					</div>
+					<div class="col span_2_of_8">
+						<div class="w3-dropdown-hover"><a href="dest/Dubai.php">
+						  <img class="shadow" src="images/uae.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <br><br><br><h1 style="font-size:350%">Dubai</h1><br>
+						    </div>
+						  </a></div>
+					</div>
+					<div class="col span_2_of_8">
+						<div class="w3-dropdown-hover"><a href="dest/Singapore.php">
+						  <img class="shadow" src="images/singapore.jpg" style="width:100%">
+						  	<div class="w3-dropdown-content w3-card-4" style="width:100%">
+						        <h1 style="font-size:350%">Malaysia</h1>
+						        <h1 style="font-size:350%">Singapore</h1>
+						        <h1 style="font-size:350%">Thailand</h1>
+						    </div>
+						  </a></div>
+					</div>
+					<div class="col span_1_of_8">
+					</div>
+				</div>
+
+
+				
+				
+				<footer style="font-size: 12px">
+				<div class="section group about shadow" id="about">
+					<div class="col span_1_of_8">
+					
+					</div>
+					<div class="col span_3_of_8">
+					<h2>Official Tourism Websites</h2>
+					<div class="col span_4_of_8">
+					<a href="http://www.australia.com/en-in">Australia</a><br>
+					<a href="http://www.visitbrasil.com/en/">Brazil</a><br>
+					<a href="https://www.visitdubai.com/en-in/">Dubai</a><br>
+					<a href="http://in.france.fr/">France</a><br>
+					</div>
+					<div class="col span_3_of_8">
+					<a href="http://www.tourism.gov.my/">Malaysia</a><br>
+					<a href="http://www.visitsingapore.com/en.html">Singapore</a><br>
+					<a href="http://www.myswitzerland.com/en-in/home.html">Switzerland</a><br>
+					<a href="https://www.tourismthailand.org/home">Thailand</a>
+					</div>
+					</div>
+					<div class="col span_3_of_8">
+					<h2>About Us</h2>
+					<p>Website developed and managed by</p>
+					
+					<p>Ameya Parab, Siddhesh Mirjankar, Nihar Karle and Raghav Jhawar</p>
+					
+					<p>Email your queries at: ameya.parab@ves.ac.in or siddhesh.mirjankar@ves.ac.in</p>
+					<p>Contact us: +91-9930889285/+91-8898004099</p>
+					</div>
+					<div class="col span_1_of_8">
+					
+					</div>
+				</div>
+				</footer>
+
+</body>
+</html>

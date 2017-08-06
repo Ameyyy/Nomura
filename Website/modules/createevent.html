@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/main.css">
+<head>
+<body>
+
+<div class="w3-container">
+  <h2>Event</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Create an Event</button>
+
+  <div id="id01" class="modal">
+    <div class="modal-content-full" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php" oninput="exp.value=parseInt(experience.value)">
+        <h1>Create an Event</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Name</b></label>
+              <input class="input-full" type="text" placeholder="Enter Name of the Event" name="eventname" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Cause</b></label>
+                <input class="input-full" placeholder="Select a Cause" name="cause" list="cause">    
+                <datalist id="cause">
+                  <option value="Animal Rescue">Animal Rescue</option>
+                  <option value="Cleanliness Drive">Cleanliness Drive</option>
+                  <option value="Education">Education</option>
+                  <option value="Health Campaign">Health Campaign</option>
+                  <option value="Human Rights">Human Rights</option>
+                  <option value="Rural Development">Rural Development</option>
+                  <option value="Water Conservation">Water Conservation</option>
+                  <option value="Women & Children Rights">Women & Children Rights</option>
+                </datalist>
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Location</b></label>
+              <input class="input-full" type="text" name="location" placeholder="Enter Address" required><br>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Date</b></label>
+              <input class="input-full" type="date" name="eventdate" min="2000-01-02">
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Time</b></label>
+              <input class="input-full" type="time" name="eventtime">
+            </div>
+          </div>
+          <div class="section group" >
+            <h3>Volunteer Information</h3>
+            <div class="col span_8_of_8" style="text-align:left">
+              <label style="padding-right: 2%""><b>Experience</b></label>
+              0
+              <input type="range" id="experience" name="experience" value="0" min="0" max="1000">
+              1000
+              <output style="padding-left: 4%" name="exp" for="experience"></output>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_2_of_8" style="text-align:left">
+              <label><b>Count</b></label>
+              <input class="input-full" type="number" placeholder="Required number of Volunteers" name="count" style="text-align:left" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="Male"> Male
+              <input type="radio" name="gender" value="Female"> Female
+              <input type="radio" name="gender" value="Both" checked> Both
+            </div>
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Age</b></label>
+              <input class="input-full" type="number" placeholder="Enter Age" name="age" style="text-align:left" >
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_4_of_8" style="text-align:left">
+              <label><b>Location</b></label>
+                <input class="input-full" placeholder="Select Your Location" name="location" list="location">    
+                <datalist id="location">
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                </datalist>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Create</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="red-button">Cancel</button>
+        <span style="float:right">Already Registered? <a href="#">Log In</a></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>

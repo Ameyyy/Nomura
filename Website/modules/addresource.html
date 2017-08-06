@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/main.css">
+<head>
+<body>
+
+<div class="w3-container">
+  <h2>Resources</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Add</button>
+
+  <div id="id01" class="modal">
+    <div class="modal-content-half" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php">
+        <h1>Add a Resource</h1>
+        <div class="top"></div>
+           <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Name</b></label>
+              <input class="input-full" type="text" placeholder="Enter a Resource Name" name="resourcename" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Cost</b></label>
+              <input class="input-full" type="number" placeholder="Enter Cost of 1 Resource" name="cost" style="text-align:left" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Quantity</b></label>
+              <input class="input-full" type="number" placeholder="Enter Required Quantity" name="quantity" style="text-align:left" required>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Add</button>
+      </form>
+
+      <div style="">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="red-button">Cancel</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>

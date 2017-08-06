@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+		document.getElementById('notifyBtn').addEventListener('click',function(){
+
+			if(! ('Notification' in window) ){
+				alert('Web Notification is not supported');
+				return;
+			}	
+
+			Notification.requestPermission(function(permission){
+
+				var notification = new Notification("Event Name",{body:'Click here to Participate in this Event.'});
+				notification.onclick = function() { window.open('http://www.mozilla.org', '_blank'); };
+	
+				};
+			});
+		});
+	});
+
+var notification = new Notification("Hi there!");
+setTimeout(function(){
+	notification.close(); //closes the notification
+},2000);
+</script>
+</head>
+<body>
+<button id="notifyBtn">Show Me a Notification!</button>
+<audio id="alertSound">
+		  <source src="audio/winlogon.wav" type="audio/wav">
+		</audio>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/main.css">
+<head>
+<body>
+
+<div class="w3-container">
+  <h2>Log In</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Log In</button>
+
+  <div id="id01" class="modal">
+    <div class="modal-content-half" style="max-width:600px">
+
+      <div class="">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+      </div>
+      <form class="" action="/action_page.php">
+        <h1>Log In</h1>
+        <div class="top"></div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Email</b></label>
+              <input class="input-full" type="email" placeholder="Enter Email" name="email" required>
+            </div>
+          </div>
+          <div class="section group" >
+            <div class="col span_8_of_8" style="text-align:left">
+              <label><b>Password</b></label>
+              <input class="input-full" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+          </div>
+
+          <button class="green-button" type="submit">Register</button>
+      </form>
+
+      <div class="bottom-section">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="red-button">Cancel</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>
